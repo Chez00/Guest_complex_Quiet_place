@@ -2,9 +2,6 @@
 
 namespace App\Services;
 
-/**
- * @property int $err
- */
 class ErrMessage
 {
     private static array $ErrCode = [

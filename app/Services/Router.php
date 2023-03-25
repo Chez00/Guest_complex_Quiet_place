@@ -2,6 +2,11 @@
 
 namespace App\Services;
 
+use App\modules\ModuleLanding,
+    App\modules\Module404Page;
+
+
+
 class Router
 {
     private static array $RoutesList = [];
@@ -17,14 +22,17 @@ class Router
     public static function RouterEnable(): void
     {
         if (!isset($_GET['q'])){
-            require_once 'public/index.php';
+            $q = new ModuleLanding('Landing');
+            $q->openPage();
             die();
         }
         else{
             $query = $_GET['q'];
             foreach (self::$RoutesList as $route){
                 if ($route['url'] === '/'.$query){
-                    require_once 'public/'.$route['page'].'.php';
+                    $mod = 'App\modules\Module'.$route['page'];
+                    $q = new $mod($route['page']);
+                    $q->openPage();
                     die();
                 }
             }
@@ -34,6 +42,7 @@ class Router
     }
     public static function NotFoundPage(): void
     {
-        require_once 'public/404.php';
+        $q = new Module404Page('404');
+        $q->openPage();
     }
 }

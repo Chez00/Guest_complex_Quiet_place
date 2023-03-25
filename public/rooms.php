@@ -28,7 +28,7 @@ require_once __DIR__. '/Module/Head.php';
                               <div class="card d-flex flex-row align-items-center">
                                   <a href="#" class="w280"><img src="..\public\img\1648945674_71-vsegda-pomnim-com-p-panoramnii-dom-v-lesu-foto-72.jpg" class="card-img-top w-100" alt="..."></a>
                                 <div class="card-body text-center">
-                                    <a href="" class="text-decoration-none text-light"><h5 class="card-title fs-2" >Дом у моря - 5 спальных мест</h5></a>
+                                    <a href="..\Room?id=1" class="text-decoration-none text-light"><h5 class="card-title fs-2" >Дом у моря - 5 спальных мест</h5></a>
                                   <p class="card-text fs-1 text-decoration-underline text-bg-info">12 000 руб./сутки</p>
                                   <p class="card-text">Кресло оранжевого цвета высокой мягкости. Обои шоколадного цвета с узором из кошек. Комод из золота алого цвета, заваленный оружием. Рядом с ним стоит сломанная катапульта. На стене зеркало. Одно окно на всю стену с разноцветными шторами. Жесткий ковер, на котором изображен корабль в бурю.</p>
                                   <a class="btn btn-outline-light mt-2 fs-4" href="#" >Заказать</a>
