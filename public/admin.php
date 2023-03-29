@@ -6,7 +6,7 @@ require_once __DIR__. '/Module/HeadAdmin.php';
     <div class="row">
         <div class="col">
             <h1 class="text-center">Добавление Администратора</h1>
-            <form action="../Admin/test" method="post" name="admin" id="newAdmin">
+            <form action="../Admin/add" method="post" name="admin" id="newAdmin">
                 <div class="mb-3 mt-5">
                     <label for="exampleInputLogin1" class="form-label">Логин</label>
                     <input type="text" name="Login" class="form-control" id="Login">
@@ -24,7 +24,7 @@ require_once __DIR__. '/Module/HeadAdmin.php';
                     <input class="form-check-input" type="checkbox" role="switch" name="Role" id="flexSwitchCheckChecked" checked>
                     <label class="form-check-label" for="flexSwitchCheckChecked">Администратор</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Отправить</button>
+                <button type="submit" class="btn btn-primary" name="formName" value="AddAdmin">Отправить</button>
             </form>
         </div>
         <div class="col">
@@ -34,7 +34,7 @@ require_once __DIR__. '/Module/HeadAdmin.php';
         </div>
         <div class="col">
             <h1 class="text-center">Добавление номера</h1>
-            <form action="../Admin/test" method="post" name="room" id="newRoom">
+            <form action="../Admin/add" method="post" name="room" id="newRoom" enctype="multipart/form-data">
                 <div class="mb-3 mt-5">
                     <label for="exampleInputLogin1" class="form-label">Название номера</label>
                     <input type="text" name="Name" class="form-control" id="Name">
@@ -50,7 +50,7 @@ require_once __DIR__. '/Module/HeadAdmin.php';
                 <div class="input-group mb-3">
                     <input type="file" class="form-control" id="inputGroupFile04" name="Img[]" aria-describedby="inputGroupFileAddon04" aria-label="Загрузка" multiple >
                 </div>
-                <button type="submit" class="btn btn-primary">Отправить</button>
+                <button type="submit" class="btn btn-primary" name="formName" value="AddRoom">Отправить</button>
             </form>
         </div>
     </div>
