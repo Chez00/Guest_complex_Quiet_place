@@ -30,6 +30,7 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
                 'value' => $par
             ];
             DB_Work::DBOperation ($param);
+
 //            header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
         }
     }

@@ -8,15 +8,26 @@ use App\Services\ErrMessage,
     PDO;
 
 
-class DBConnection
+final class DBConnection
 {
+    private static ?self $instance = null;
     public static array $Config = [];
     protected static string $Message = '';
+
+    public static function getInstance(): self
+    {
+        if(self::$instance === null){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
 
     public static function ReadConfig() :PDO
     {
 // **** Чтение конфига к базе данных
-        self::$Config = DatabaseConfig::$DBConfig;
+        $DatabaseConfig = DatabaseConfig::getInstance();
+        self::$Config = $DatabaseConfig::$DBConfig;
         if(!empty(self::$Config)){
 //          **** Проверка на пустоту конфигурации базы данных
             if(self::CheckEmpty(self::$Config)){
@@ -40,6 +51,9 @@ class DBConnection
         try {
 //          Подключение к базе
             $DBConn = new PDO(self::$Config['DB_Driver'] . ':host=' . self::$Config['DB_Host'] . ';port=' . self::$Config['DB_Port'] . ';dbname=' . self::$Config['DB_Name'] . ';charset=' . self::$Config['DB_Charset'], self::$Config['DB_User'], self::$Config['DB_Pass'], array(
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
                 PDO::ATTR_PERSISTENT => true
             ));
             session_start();
@@ -62,6 +76,14 @@ class DBConnection
             }
         }
         return true;
+    }
+    public function __clone(): void
+    {
+        // TODO: Implement __clone() method.
+    }
+    public function __wakeup(): void
+    {
+        // TODO: Implement __wakeup() method.
     }
 
 
