@@ -14,23 +14,21 @@ class DB_Work
         $DBConnect = DBConnection::getInstance();
         return $DBConnect::ReadConfig();
     }
-    public static function DBOperation(array $mass): void{
-        $pdo = self::Connect();
+    public static function DBOperation(array $mass): ?array
+    {
         if ($mass['operation'] == 'Add'){
-
-            $res = DBFunctions::ReadDB($mass['value'], $mass['DB_table']);
-//            var_dump($res);
-//            DBFunctions::AddDB($mass['value'], $mass['DB_table'], $pdo);
-
+            DBFunctions::AddDB($mass['value'], $mass['DB_table']);
+            return ['ok' => 'true'];
         }
         elseif ($mass['operation'] == 'Edit'){
-
+            return [];
         }
         elseif ($mass['operation'] == 'Dell'){
-
+            DBFunctions::DellDB($mass['value'], $mass['DB_table']);
+            return ['ok' => 'true'];
         }
         else{
-
+            return DBFunctions::ReadDB($mass['value'], $mass['DB_table']);
         }
     }
 }

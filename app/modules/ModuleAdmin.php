@@ -11,6 +11,14 @@ class ModuleAdmin implements \App\config\Interface\ModelPage
     }
     public function openPage(): void
     {
-        require_once 'public/'.$this->isPage.'.php';
+        session_start();
+        if (!empty($_SESSION['AdminUser'])){
+            echo 'user: '.$_SESSION['AdminUser'];
+        }
+        if(!empty($_SESSION['AdminUser'])){
+            require_once 'public/'.$this->isPage.'.php';
+        } else{
+            require_once 'public/AdminAvtoriz.php';
+        }
     }
 }

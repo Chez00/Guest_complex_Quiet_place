@@ -26,6 +26,23 @@ require_once __DIR__. '/Module/HeadAdmin.php';
                 </div>
                 <button type="submit" class="btn btn-primary" name="formName" value="AddAdmin">Отправить</button>
             </form>
+            <div class="mt-5">
+                <?php
+                use App\DB\DB_Work;
+                $param = [
+                    'operation' => 'Read',
+                    'DB_table' => 'User',
+                    'value' => []
+                ];
+                $users = DB_Work::DBOperation($param);
+                foreach ($users as $user)
+                    echo '<p">'.$user['ID'].' Login: '.$user['Login'].' Email: '.$user['Email'].' Role : '.$user['Role'].'</p>
+                          <form action="../Admin/add" method="get" name="User" id="DellAdmin">
+                                <input type="text" style="display: none" name="User" value = "'.$user['ID'].'">
+                                <button type="submit" class="btn btn-primary" name="formName" value="DellUser">Удалить</button>
+                          </form>';
+                ?>
+            </div>
         </div>
         <div class="col">
             <div class="d-grid ">

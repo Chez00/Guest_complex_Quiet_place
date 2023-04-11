@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5580a9d6-a11a-4513-9720-cb54ad83a4fe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/DB/DBFunctions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DB/DBFunctions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/DB/DB_Work.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DB/DB_Work.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/DBConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/DBConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/DatabaseConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/DatabaseConfig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/ModuleAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/ModuleAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/modules/ModuleAdminAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/ModuleAdminAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +75,7 @@
       <recent name="D:\OSPanel\domains\quiet-place\public\Module" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\quiet-place\app\Services" />
       <recent name="D:\OSPanel\domains\tix-mesto\config" />
       <recent name="D:\OSPanel\domains\tix-mesto\Public" />
     </key>
@@ -110,6 +112,9 @@
       <workItem from="1680096905915" duration="11657000" />
       <workItem from="1680524798023" duration="6528000" />
       <workItem from="1680702035402" duration="4047000" />
+      <workItem from="1680786351933" duration="4287000" />
+      <workItem from="1680951512492" duration="5411000" />
+      <workItem from="1681218710583" duration="5900000" />
     </task>
     <servers />
   </component>

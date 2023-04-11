@@ -56,7 +56,6 @@ final class DBConnection
                 PDO::ATTR_EMULATE_PREPARES   => false,
                 PDO::ATTR_PERSISTENT => true
             ));
-            session_start();
             return $DBConn;
         }catch (PDOException $e){
 //          Вывод ошибки
