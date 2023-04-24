@@ -6,9 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Services\\DBConnection' => $baseDir . '/app/Services/DBConnection.php',
-    'App\\Services\\ErrorMessage' => $baseDir . '/app/Services/ErrorMessage.php',
-    'App\\Services\\Router' => $baseDir . '/app/Services/Router.php',
-    'App\\config\\DatabaseConfig' => $baseDir . '/app/config/DatabaseConfig.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
