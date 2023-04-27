@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Services;
+use \RedBeanPHP\R as R;
 
 use App\Services\ErrMessage,
     App\config\DatabaseConfig,
-    PDOException,
-    PDO;
+    PDOException;
 
 
 final class DBConnection
@@ -23,7 +23,7 @@ final class DBConnection
     }
 
 
-    public static function ReadConfig() :PDO
+    public static function ReadConfig() : \RedBeanPHP\ToolBox
     {
 // **** Чтение конфига к базе данных
         $DatabaseConfig = DatabaseConfig::getInstance();
@@ -46,20 +46,28 @@ final class DBConnection
         }
     }
 //  **** Функция подключения
-    protected static function Connect(): PDO
+    protected static function Connect(): \RedBeanPHP\ToolBox
     {
+
+//        try {
+////          Подключение к базе
+//            $DBConn = new PDO(self::$Config['DB_Driver'] . ':host=' . self::$Config['DB_Host'] . ';port=' . self::$Config['DB_Port'] . ';dbname=' . self::$Config['DB_Name'] . ';charset=' . self::$Config['DB_Charset'], self::$Config['DB_User'], self::$Config['DB_Pass'], array(
+//                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+//                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+//                PDO::ATTR_EMULATE_PREPARES   => false,
+//                PDO::ATTR_PERSISTENT => true
+//            ));
+//            return $DBConn;
+//        }catch (PDOException $e){
+////          Вывод ошибки
+//            echo "Error:" . $e->getMessage() . "<br/>";
+//            die();
+//        }
         try {
-//          Подключение к базе
-            $DBConn = new PDO(self::$Config['DB_Driver'] . ':host=' . self::$Config['DB_Host'] . ';port=' . self::$Config['DB_Port'] . ';dbname=' . self::$Config['DB_Name'] . ';charset=' . self::$Config['DB_Charset'], self::$Config['DB_User'], self::$Config['DB_Pass'], array(
-                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES   => false,
-                PDO::ATTR_PERSISTENT => true
-            ));
+            $DBConn = R::setup( self::$Config['DB_Driver'] . ':host=' . self::$Config['DB_Host'] . ';port=' . self::$Config['DB_Port'] . ';dbname=' . self::$Config['DB_Name'] . ';charset=' . self::$Config['DB_Charset'], self::$Config['DB_User'], self::$Config['DB_Pass']);
             return $DBConn;
         }catch (PDOException $e){
-//          Вывод ошибки
-            echo "Error:" . $e->getMessage() . "<br/>";
+            echo $e->getmessage();
             die();
         }
     }

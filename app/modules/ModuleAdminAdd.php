@@ -22,12 +22,12 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
             elseif($_POST['formName'] == 'AddAdmin'){
                 $par = $_POST;
                 unset($par['formName']);
-                if($par['Role'] == 'on'): $par['Role'] = 0; else: $par['Role'] = 1; endif;
-                $par['TimeRegistration'] = date("Y-m-d H:i:s");
-                $par['Password'] = password_hash($par['Password'], PASSWORD_DEFAULT);
+                if($par['role'] == 'on'): $par['role'] = 0; else: $par['role'] = 1; endif;
+                $par['registration'] = date("Y-m-d H:i:s");
+                $par['password'] = password_hash($par['password'], PASSWORD_DEFAULT);
                 $param = [
                     'operation' => 'Add',
-                    'DB_table' => 'User',
+                    'DB_table' => 'user',
                     'value' => $par
                 ];
                 DB_Work::DBOperation ($param);
@@ -43,10 +43,10 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
         }
         else{
             if($_GET['formName'] == 'DellUser'){
-                $par['ID'] = $_GET['User'];
+                $par['id'] = $_GET['User'];
                 $param = [
                     'operation' => 'Dell',
-                    'DB_table' => 'User',
+                    'DB_table' => 'user',
                     'value' => $par
                 ];
                 var_dump($param);
@@ -56,31 +56,34 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
         }
     }
     protected function Avtorization( array $params): void{
-        if($params['Login'] && $params['Password']) {
-            echo 'Ok';
-            $Login = ['Login' => $params['Login']];
-            $Pass = $params['Password'];
+        var_dump($params);
+        if($params['login'] && $params['password']) {
+            $Login = ['login' => $params['login']];
+            $Pass = $params['password'];
             $param = [
-                'operation' => 'Read',
-                'DB_table' => 'User',
+                'operation' => 'Filter',
+                'DB_table' => 'user',
                 'value' => $Login
             ];
             $user = DB_Work::DBOperation($param);
-            if(isset($user)){
+            if($user != null){
                 var_dump($user);
-                if(password_verify($Pass, $user['0']['Password'])){
-                    if($user['0']['Role'] == 0){
-                        $_SESSION['AdminUser'] = $Login['Login'];
+                if(password_verify($Pass, $user[0]['password'])){
+                    if($user[0]['role'] == 0){
+                        $_SESSION['AdminUser'] = $user[0]['login'];
                         echo 'user: '.$_SESSION['AdminUser'];
                         header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
                     }
                     else{
-                        echo 'no Admin';
+                        header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
                     }
                 }
                 else{
                     echo 'Pass no';
                 }
+            }
+            else{
+                echo 'No';
             }
         }
         else{

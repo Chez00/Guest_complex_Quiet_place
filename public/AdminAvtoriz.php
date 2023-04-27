@@ -5,11 +5,11 @@ require_once __DIR__. '/Module/HeadAdmin.php';
     <form action="../Admin/add" method="post" name="avtoriz" id="avtoriz">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Логин</label>
-            <input type="text" name="Login" class="form-control" id="exampleInputLogin">
+            <input type="text" name="login" class="form-control" id="exampleInputLogin">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" name="Password" class="form-control" id="exampleInputPassword1">
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
         </div>
         <button type="submit" name="formName" value="Avtoriz" class="btn btn-primary">Отправить</button>
     </form>

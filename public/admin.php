@@ -9,19 +9,19 @@ require_once __DIR__. '/Module/HeadAdmin.php';
             <form action="../Admin/add" method="post" name="admin" id="newAdmin">
                 <div class="mb-3 mt-5">
                     <label for="exampleInputLogin1" class="form-label">Логин</label>
-                    <input type="text" name="Login" class="form-control" id="Login">
+                    <input type="text" name="login" class="form-control" id="login">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
-                    <input type="email" name="Email" class="form-control" id="Email" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">Мы никогда никому не передадим вашу электронную почту.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                    <input type="password" name="Password" class="form-control" id="Password">
+                    <input type="password" name="password" class="form-control" id="password">
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" role="switch" name="Role" id="flexSwitchCheckChecked" checked>
+                    <input class="form-check-input" type="checkbox" role="switch" name="role" id="flexSwitchCheckChecked" checked>
                     <label class="form-check-label" for="flexSwitchCheckChecked">Администратор</label>
                 </div>
                 <button type="submit" class="btn btn-primary" name="formName" value="AddAdmin">Отправить</button>
@@ -31,16 +31,16 @@ require_once __DIR__. '/Module/HeadAdmin.php';
                 use App\DB\DB_Work;
                 $param = [
                     'operation' => 'Read',
-                    'DB_table' => 'User',
-                    'value' => []
+                    'DB_table' => 'user'
                 ];
                 $users = DB_Work::DBOperation($param);
                 foreach ($users as $user)
-                    echo '<p">'.$user['ID'].' Login: '.$user['Login'].' Email: '.$user['Email'].' Role : '.$user['Role'].'</p>
+                    echo '<p>'.$user['id'].' Login: '.$user['login'].' Email: '.$user['email'].' Role : '.$user['role'].'</p>
                           <form action="../Admin/add" method="get" name="User" id="DellAdmin">
-                                <input type="text" style="display: none" name="User" value = "'.$user['ID'].'">
+                                <input type="text" style="display: none" name="User" value = "'.$user['id'].'">
                                 <button type="submit" class="btn btn-primary" name="formName" value="DellUser">Удалить</button>
                           </form>';
+
                 ?>
             </div>
         </div>
