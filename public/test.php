@@ -1,6 +1,7 @@
 <?php
 use RedBeanPHP\R,
-    App\DB\DB_Work;
+    App\DB\DB_Work,
+    App\DB\DB_Param;
 
 R::debug( TRUE );
 
@@ -34,10 +35,7 @@ R::debug( TRUE );
 
 // ************************* READ *****************************
 
-$param = [
-    'operation' => 'Read',
-    'DB_table' => 'user'
-];
+$param = DB_Param::Params('Read', 'user');
 $user = DB_Work::DBOperation($param);
 foreach ($user as $r){
     var_dump($r);

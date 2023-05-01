@@ -2,7 +2,8 @@
 
 namespace App\modules;
 
-use App\DB\DB_Work;
+use App\DB\DB_Work,
+    App\DB\DB_Param;
 
 class ModuleAdminAdd implements \App\config\Interface\ModelPage
 {
@@ -13,6 +14,7 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
     }
     public function openPage(): void
     {
+        $table = 'user';
         if($_POST){
             if ($_POST['formName'] == 'AddRoom'){
                 var_dump($_POST);
@@ -25,11 +27,7 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
                 if($par['role'] == 'on'): $par['role'] = 0; else: $par['role'] = 1; endif;
                 $par['registration'] = date("Y-m-d H:i:s");
                 $par['password'] = password_hash($par['password'], PASSWORD_DEFAULT);
-                $param = [
-                    'operation' => 'Add',
-                    'DB_table' => 'user',
-                    'value' => $par
-                ];
+                $param = DB_Param::Params('Add', $table , $par);
                 DB_Work::DBOperation ($param);
 
                 header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
@@ -44,11 +42,7 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
         else{
             if($_GET['formName'] == 'DellUser'){
                 $par['id'] = $_GET['User'];
-                $param = [
-                    'operation' => 'Dell',
-                    'DB_table' => 'user',
-                    'value' => $par
-                ];
+                $param = DB_Param::Params('Dell', $table, $par);
                 var_dump($param);
                 DB_Work::DBOperation ($param);
                 header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
