@@ -37,6 +37,7 @@ R::debug( TRUE );
 
 $param = DB_Param::Params('Read', 'user');
 $user = DB_Work::DBOperation($param);
+var_dump($user);
 foreach ($user as $r){
     var_dump($r);
     echo '<p></p>';

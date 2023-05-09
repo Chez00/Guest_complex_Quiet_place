@@ -12,28 +12,32 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
     {
         $this->isPage = $isPage;
     }
-    public function openPage(): void
+    public function openPage()
     {
         $table = 'user';
-        if($_POST){
-            if ($_POST['formName'] == 'AddRoom'){
-                var_dump($_POST);
+        $arr = json_decode(file_get_contents('php://input'), true);
+        if($arr){
+            if ($arr['formName'] == 'AddRoom'){
+                var_dump($arr);
                 echo '<p>  </p>';
                 var_dump($_FILES);
             }
-            elseif($_POST['formName'] == 'AddAdmin'){
-                $par = $_POST;
+            elseif($arr['formName'] == 'AddAdmin'){
+                $par = $arr;
                 unset($par['formName']);
-                if($par['role'] == 'on'): $par['role'] = 0; else: $par['role'] = 1; endif;
-                $par['registration'] = date("Y-m-d H:i:s");
-                $par['password'] = password_hash($par['password'], PASSWORD_DEFAULT);
-                $param = DB_Param::Params('Add', $table , $par);
-                DB_Work::DBOperation ($param);
-
-                header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
+                if ($par['login'] != '' or $par['password'] != '' or $par['email'] !=''){
+                    if($par['role'] == 'on'): $par['role'] = 0; else: $par['role'] = 1; endif;
+                    $par['registration'] = date("Y-m-d H:i:s");
+                    $par['password'] = password_hash($par['password'], PASSWORD_DEFAULT);
+                    $param = DB_Param::Params('Add', $table , $par);
+                    DB_Work::DBOperation ($param);
+                }
+                else{
+                    echo 'Error value';
+                }
             }
-            elseif($_POST['formName'] == 'Avtoriz'){
-                $par = $_POST;
+            elseif($arr['formName'] == 'Avtoriz'){
+                $par = $arr;
                 unset($par['formName']);
                 session_start();
                 $this->Avtorization($par);
@@ -46,6 +50,12 @@ class ModuleAdminAdd implements \App\config\Interface\ModelPage
                 var_dump($param);
                 DB_Work::DBOperation ($param);
                 header("Location: http://".$_SERVER['HTTP_HOST']."/Admin");
+            }
+            if($_GET['formName'] == 'users'){
+                $param = DB_Param::Params('Read', 'user');
+                $users = DB_Work::DBOperation($param);
+                echo json_encode($users);
+
             }
         }
     }

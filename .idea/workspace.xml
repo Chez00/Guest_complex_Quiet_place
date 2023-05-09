@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5580a9d6-a11a-4513-9720-cb54ad83a4fe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/Interface/ModelPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/Interface/ModelPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/modules/ModuleAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/ModuleAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/modules/ModuleAdminAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/modules/ModuleAdminAdd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Module/Footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Module/Footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Module/Head.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Module/Head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Module/HeadAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/Module/HeadAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/test.php" afterDir="false" />
     </list>
@@ -26,8 +30,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -57,6 +62,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.search-composer-json&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.14.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.14.0&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/OSPanel/domains/quiet-place/public/Module&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -73,6 +80,7 @@
       <recent name="D:\OSPanel\domains\quiet-place\public\Module" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\quiet-place\public\js" />
       <recent name="D:\OSPanel\domains\quiet-place\app\Services" />
       <recent name="D:\OSPanel\domains\tix-mesto\config" />
       <recent name="D:\OSPanel\domains\tix-mesto\Public" />
@@ -120,6 +128,14 @@
       <workItem from="1682598956450" duration="6534000" />
       <workItem from="1682737776681" duration="6281000" />
       <workItem from="1682850705736" duration="1971000" />
+      <workItem from="1682919299748" duration="3834000" />
+      <workItem from="1683029745695" duration="3981000" />
+      <workItem from="1683034042751" duration="1009000" />
+      <workItem from="1683035060968" duration="621000" />
+      <workItem from="1683212022305" duration="2996000" />
+      <workItem from="1683284539549" duration="11913000" />
+      <workItem from="1683352135639" duration="13990000" />
+      <workItem from="1683447530078" duration="8133000" />
     </task>
     <servers />
   </component>
