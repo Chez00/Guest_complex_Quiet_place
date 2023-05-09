@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "gabordemooij/redbean": "dev-master"
   },
   "autoload": {
     "psr-4": {

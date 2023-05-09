@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit132fd3b01e6c8ad5ac0889f86842d06d
 {
     public static $prefixLengthsPsr4 = array (
+        'R' => 
+        array (
+            'RedBeanPHP\\' => 11,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +18,10 @@ class ComposerStaticInit132fd3b01e6c8ad5ac0889f86842d06d
     );
 
     public static $prefixDirsPsr4 = array (
+        'RedBeanPHP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -21,10 +29,6 @@ class ComposerStaticInit132fd3b01e6c8ad5ac0889f86842d06d
     );
 
     public static $classMap = array (
-        'App\\Services\\DBConnection' => __DIR__ . '/../..' . '/app/Services/DBConnection.php',
-        'App\\Services\\ErrorMessage' => __DIR__ . '/../..' . '/app/Services/ErrorMessage.php',
-        'App\\Services\\Router' => __DIR__ . '/../..' . '/app/Services/Router.php',
-        'App\\config\\DatabaseConfig' => __DIR__ . '/../..' . '/app/config/DatabaseConfig.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
